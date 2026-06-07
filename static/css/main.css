@@ -1,0 +1,9 @@
+/* css/main.css */
+
+body {
+    background: #0a0f26;
+    font-family: 'Satoshi', sans-serif;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    color: white;
+}

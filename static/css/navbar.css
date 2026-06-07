@@ -1,0 +1,115 @@
+/* css/navbar.css */
+
+.navbar-custom-main {
+    background-color: #11141c !important; 
+    border-bottom: 1px solid #262a33;
+
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 48px;
+    
+    /* flex-shrink: 0; */
+}
+
+.navbar-action-btn {
+    color: #aeb4c0 !important;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem !important;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    background: transparent;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-action-btn:hover {
+    background-color: #222734 !important;
+    color: #ffffff !important;
+}
+
+/* Completely hides Bootstrap's default dropdown arrow pseudo-element from profile icon */
+#navbarProfileDropdown::after {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Left Section: Sidebar Toggles & Platform Identity
+   ========================================================================== */
+
+.navbar-brand-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar-brand-img {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.15s ease;
+}
+
+.navbar-brand-link:hover .navbar-brand-img {
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   Middle Section: Global Search Engine Field Layout
+   ========================================================================== */
+
+.navbar-search-wrapper {
+    max-width: 560px;
+    width: 100%;
+}
+
+.navbar-search-field {
+    background-color: #1c202a !important;
+    border: 1px solid #323846 !important;
+    color: #e1e4ea !important;
+    font-size: 0.85rem;
+}
+
+.navbar-search-field::placeholder {
+    color: #6a7485;
+}
+
+.navbar-search-field:focus {
+    background-color: #222734 !important;
+    border-color: #4c7fff !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================================================
+   Right Section: User Profile & Meta Info Dropdown Panel Configurations
+   ========================================================================= */
+
+.navbar-profile-avatar {
+    width: 26px;
+    height: 26px;
+    background-color: #7452a6;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: #aeb4c0 !important;
+    font-size: 0.85rem;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: #222734 !important;
+    color: #ffffff !important;
+}
+
+.text-primary-hover:hover {
+    background-color: #222734 !important;
+    color: #4c7fff !important;
+}
