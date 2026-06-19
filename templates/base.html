@@ -7,14 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/image.png' %}" >
+
+    <!--  COMMON CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/12.3.3/gridstack.min.css"/>
 
     <!-- CUSTOM COMMON CSS FILES -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/app_layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/scrollbars.css' %}">
 
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/dashboard_layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/widget_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/portfolio_widgets.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/dashboard_sidebar_content.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/dropdown_single_value.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/gridstack.css' %}">
+    
+   
     <!-- APP SPECIFIC CSS FILES -->
      {% block extra_css %}{% endblock %}
 
@@ -36,11 +51,25 @@
 
     </div>
 
+    <!--  COMMON JS -->
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/12.3.3/gridstack-all.min.js"></script>
+
+    <!-- CUSTOM COMMON JS FILES -->
+    
 
     <!-- APP SPECIFIC JS FILES -->
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/highcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/highcharts-more.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/pareto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/sunburst.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/exporting.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/export-data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/accessibility.js"></script>
+
+    <script type="module" src="{% static 'js/dashboard.js' %}"></script>
     {% block extra_js %}{% endblock %}
-
-
+    
 </body>
 </html>

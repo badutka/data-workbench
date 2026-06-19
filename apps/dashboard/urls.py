@@ -3,4 +3,8 @@ from . import views
 
 urlpatterns = [
     path('home/', views.home, name='home'),
+    path('<slug:slug>/', views.dashboard_view, name='dashboard'),
+    path('api/widgets/update-layout/', views.update_widget_layout, name='update_widget_layout'),
+    path('api/widgets/<uuid:widget_id>/sidebar/', views.dashboard_sidebar_content, name='widget_sidebar'),
+    path('api/widgets/<uuid:widget_id>/update/', views.update_widget, name='update_widget'),
 ]

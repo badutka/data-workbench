@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'core',
+
     'apps.dashboard.apps.DashboardConfig',
+    'apps.datahub.apps.DatahubConfig',
+    'apps.workbench.apps.WorkbenchConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +84,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+WAREHOUSE_DB_PATH = BASE_DIR / "warehouse.sqlite3"
 
 
 # Password validation
@@ -125,6 +131,3 @@ STATICFILES_DIRS = [
 
 # For collectstatic in production
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-print(BASE_DIR)
-print(STATIC_ROOT)

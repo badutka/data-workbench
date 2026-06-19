@@ -1,0 +1,66 @@
+{% load static %}
+{% load common_filters  %}
+
+{% with selected=selected_value %}
+
+<div class="dropdown-single-value-generic dropdown" id="{{ dropdown_id }}">
+
+    <!-- BUTTON -->
+    <button class="dropdown-single-value-generic-btn" type="button" data-bs-toggle="dropdown">
+        <span class="left">
+
+            <!-- icon -->
+            <i class="fas
+                {% for opt in options %}
+                    {% if opt.value == selected %}
+                        {{ opt.icon }}
+                    {% endif %}
+                {% endfor %}
+            btn-icon"></i>
+
+            <!-- label -->
+            <span class="label">
+                {% for opt in options %}
+                    {% if opt.value == selected %}
+                        {{ opt.label }}
+                    {% endif %}
+                {% endfor %}
+            </span>
+
+        </span>
+
+        <i class="fas fa-chevron-down caret"></i>
+    </button>
+
+    <!-- OPTIONS -->
+    <div class="dropdown-menu dropdown-single-value-generic-menu">
+
+        {% for opt in options %}
+            <div class="dropdown-item
+                {% if opt.value == selected %}active{% endif %}"
+                
+                 hx-post="{{ hx_url }}"
+                 hx-trigger="click"
+                 hx-vals='{"{{ hx_param_name }}": "{{ opt.value }}"}'
+                 hx-swap="none">
+
+                <i class="fas {{ opt.icon }} item-icon"></i>
+                {{ opt.label }}
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endwith %}
+
+<script>
+
+// initSingleValueDropdown("{{ dropdown_id }}");
+
+// document.body.addEventListener('htmx:configRequest', function (event) {
+//     event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+// });
+</script>

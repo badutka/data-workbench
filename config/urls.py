@@ -19,5 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('datahub/', include(('apps.datahub.urls', 'datahub'), namespace='datahub')),
+    path('workbench/', include(('apps.workbench.urls', 'workbench'), namespace='workbench')),
     path('dashboard/', include(('apps.dashboard.urls', 'dashboard'), namespace='dashboard')),
 ]
