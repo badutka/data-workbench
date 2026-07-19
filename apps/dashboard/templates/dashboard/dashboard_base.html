@@ -1,6 +1,22 @@
 {% extends "base_new.html" %}
 {% load static %}
 
+{% block extra_css %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/12.3.3/gridstack.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/topbars.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/dashboard_app_layout.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/widget_base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/portfolio_widgets.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/dashboard_sidebar_content.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/gridstack.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/sidebar.css' %}">
+
+{% endblock %}
+
 {% block content %}
 
 <div class="dashboard-shell">
@@ -21,6 +37,19 @@
 
 
 {% block extra_js %}
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/12.3.3/gridstack-all.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/highcharts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/highcharts-more.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/pareto.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/sunburst.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/exporting.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/export-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.0/modules/accessibility.js"></script>
+
+<script type="module" src="{% static 'js/dashboard.js' %}"></script>
+
 <script>
 
 let grid;
@@ -155,4 +184,4 @@ function saveDashboard() {
 }
 
 </script>
-{% endblock %}
+{% endblock extra_js %}

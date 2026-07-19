@@ -1,137 +1,163 @@
-/* css/app_layout.css */
+/* css/app_layout_new.css */
 
-/* ================================
-   GLOBAL APP SHELL
-================================ */
 
-.body-dashboard-lock {
-    height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+:root {
+  --navbar-height: 56px;
+  --app-min-height: 700px;
+  --app-main-menu-sidebar-with: 200px;
 }
 
-/* navbar stays on top (already behaves like this visually) */
-.navbar {
-    flex-shrink: 0;
+/* =========================================================
+   GLOBAL VIEWPORT LOCK (CRITICAL)
+========================================================= */
+
+html, body {
+  height: 100%;
+  margin: 0;
+
+  /* App regions handle their own scrolling */
+  overflow: hidden;
 }
 
-/* MAIN SHELL UNDER NAVBAR */
+@media (max-height: 700px) {
+
+  html,
+  body {
+        /* Allow full page scroll on small screens */
+        overflow-y: auto;
+    }
+
+  .app-shell {
+        /* Prevent excessive vertical compression */
+        min-height: var(--app-min-height);
+        height: 100%;
+    }
+
+  /* .app-body {
+      min-height: calc(var(--app-min-height) - var(--navbar-height));
+    } */
+}
+
+
+
+/* =========================================================
+   APP SHELL (OUTER STRUCTURE)
+========================================================= */
+
 .app-shell {
-    height: calc(100dvh - 48px - 4px); 
-    max-height: calc(100dvh - 48px - 4px);
+  height: 100vh;
 
-    flex: 1;
-    display: flex;
-    min-height: 0; /* CRITICAL for nested scroll */
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* Prevent layout overflow escaping */
+  overflow: hidden;
 }
 
-/* ================================
-   LEFT SIDEBAR (MAIN MENU)
-================================ */
 
-.main-menu-sidebar {
-    width: 200px;
-    flex-shrink: 0;
-    /* position: relative !important; */
 
-    height: 100% !important;
-    max-height: 100% !important;
+/* =========================================================
+   NAVBAR (TOP GLOBAL BAR)
+========================================================= */
 
-    display: flex;
-    flex-direction: column;
+.app-navbar {
+  flex: 0 0 56px;
 
-    background: #0c1223;
-    border: 1px solid rgba(0, 195, 255, 0.3);
+  display: flex;
+  align-items: center;
 
-    overflow: hidden;     /* prevents outer scroll */
+  background: #111;
+  color: white;
+
+  border-bottom: 2px solid #444;
+  padding: 0 12px;
 }
 
-/* optional sticky header inside sidebar */
-.main-menu-sidebar-header {
-    flex-shrink: 0;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0,195,255,0.15);
-    color: #e0e3ff;
+
+
+/* =========================================================
+   MAIN AREA (UNDER NAVBAR)
+========================================================= */
+
+.app-body {
+  flex: 1;
+
+  display: flex;
+
+  overflow: hidden;
+
+  /* Required for nested flex scrolling */
+  min-height: 0;
+
+  /* Prevent horizontal overflow */
+  min-width: 0;
+
+  /* height: 100%; */
 }
 
-/* menu scroll area */
-.main-menu-sidebar-content {
-    flex: 1;
-    min-height: 0;        /* 🔥 critical for flex scroll */
-    overflow-y: auto;    /* actual scrolling happens here */
-    
-    padding: 0px 12px;
-    /* padding: 1rem; */
-}
-
-.menu-section {
-    margin-bottom: 1.5rem;
-}
-
-.menu-section-title {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-
-    color: rgba(0, 195, 255, 0.6);
-
-    margin: 0.75rem 0 0.5rem 0.75rem;
-}
-
-/* menu item */
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-
-    /* padding: 0.55rem 0.75rem;
-    margin: 0.15rem 0.5rem; */
-    padding: 4px 12px;
-    margin: 2px 0px;
-
-    /* border-radius: 8px; */
-
-    color: #e0e3ff;
-    text-decoration: none;
-
-    /* font-size: 0.85rem; */
-    font-size: 13px;
-
-    transition: all 0.2s ease;
-}
-
-/* hover */
-.menu-item:hover {
-    background: rgba(0, 195, 255, 0.12);
-    color: #00c3ff;
-
-    box-shadow: 0 0 8px rgba(0, 195, 255, 0.15);
-}
-
-/* active */
-.menu-item.active {
-    background: rgba(0, 195, 255, 0.18);
-    /* border: 1px solid rgba(0, 195, 255, 0.25); */
-    color: #00c3ff;
-}
-
-/* icon alignment */
-.menu-item i {
-    width: 16px;
-    text-align: center;
-    opacity: 0.9;
-}
-
-/* ================================
-   MAIN APP AREA
-================================ */
 
 .app-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    overflow: hidden; /* IMPORTANT: no page scroll */
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Allows child views to create their own scroll containers */
+  min-height: 0;
+
+  /* Prevent content from pushing layout width */
+  min-width: 0;
+
+  /* App pages do not create browser scroll */
+  overflow: hidden;
+
+  /* height: 100%; */
+}
+
+
+
+/* =========================================================
+   LEFT MENU SIDEBAR
+========================================================= */
+
+.app-sidebar-left {
+
+  width: var(--app-main-menu-sidebar-with);
+  flex: 0 0 var(--app-main-menu-sidebar-with);
+
+  display: flex;
+  flex-direction: column;
+
+  /* background: #1a1a1a; */
+  background: #0c1223;
+  color: white;
+
+  /* border-right: 2px solid #444; */
+  border-right: 1px solid rgba(0, 195, 255, 0.30);
+  border-bottom: 1px solid rgba(0, 195, 255, 0.30);
+
+  /* Sidebar frame stays fixed, content container handles scrolling. */
+  overflow: hidden;
+
+  /* Required inside flex parent */
+  min-height: 0;
+
+
+  box-shadow:
+        inset 0 0 0 1px rgba(0,195,255,0.08),
+        0 0 10px rgba(0,195,255,0.08);
+}
+
+
+.app-sidebar-left-content {
+
+  flex: 1;
+
+  /* Only sidebar content scrolls */
+  overflow-y: auto;
+
+  /* Required inside flex parent */
+  min-height: 0;
+
+  padding: 10px;
 }
