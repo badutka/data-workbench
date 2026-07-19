@@ -1,16 +1,26 @@
 {% load static %}
 
-<!-- RESIZER HANDLE -->
-<div id="resizer" class="sidebar-resizer"></div>
+<!-- SIDEBAR WRAPPER -->
+<div class="dashboard-sidebar-wrapper">
 
-<!-- SIDEBAR -->
-<div id="sidebar"
-     class="dashboard-sidebar custom-scrollbar sidebar-viewport-lock layout-sidebar-fix"
-     hx-target="this"
-     hx-swap="innerHTML">
+    <!-- RESIZER (NOT part of HTMX swap) -->
+    <div id="resizer" class="sidebar-resizer"></div>
 
-  <h3>Widget Details</h3>
+    <!-- SIDEBAR CORE -->
+    <div class="dashboard-sidebar">
 
-  {% include "dashboard/sidebar/dashboard_sidebar_content.html" %}
+        <!-- SCROLL CONTAINER -->
+        <div id="sidebar-content"
+             class="dashboard-sidebar-content custom-scrollbar"
+             hx-target="this"
+             hx-swap="innerHTML">
+
+            <h3>Widget Details</h3>
+
+            {% include "dashboard/sidebar/dashboard_sidebar_content.html" %}
+
+        </div>
+
+    </div>
 
 </div>

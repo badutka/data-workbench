@@ -1,0 +1,180 @@
+:root {
+  --topbar-height: 74px;
+  --filters-height: 90px;
+}
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.dashboard-topbar {
+  flex: 0 0 var(--topbar-height);
+  display: flex;
+  align-items: center;
+
+  padding: 0 16px;
+  background: #0c1223;
+
+  border-bottom: 1px solid rgba(0, 195, 255, 0.25);
+}
+
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================================
+   BASE BUTTON STYLE (TOPBAR)
+========================================================= */
+
+.dashboard-topbar button {
+  background: rgba(0,195,255,0.15);
+  color: #00c3ff;
+
+  border: 1px solid rgba(0,195,255,0.3);
+  border-radius: 6px;
+
+  padding: 10px 10px;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   EDIT MODE CONTROL GROUP
+========================================================= */
+
+.btn-edit {
+  width: 102px;
+}
+
+.edit-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.edit-actions .btn-cancel {
+  width: 40px;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  text-align: center;
+  /* padding: 0.5rem 0.2rem !important; */
+}
+
+.edit-actions .btn-save {
+  width: 60px;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* =========================================================
+   FILTER BAR (GLOBAL FILTERS)
+========================================================= */
+
+.dashboard-filters {
+  flex: 0 0 var(--filters-height);
+  padding: 1rem 2rem;
+
+  position: relative;
+  box-sizing: border-box;
+
+  background: #0c1223;
+}
+
+/* title */
+.dashboard-filters h4 {
+  color: #00c3ff;
+  margin-bottom: 0.5rem;
+}
+
+/* filter row */
+.filter-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* filter pill */
+.filter-pill {
+  background: rgba(0,195,255,0.15);
+  color: #00c3ff;
+
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+
+  font-size: 0.75rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.filter-pill .remove {
+  cursor: pointer;
+}
+
+/* add filter button */
+.btn-add-filter {
+  background: rgba(0,195,255,0.15);
+  color: #00c3ff;
+
+  border: 1px solid rgba(0,195,255,0.3);
+  border-radius: 6px;
+
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+/* =========================================================
+   FILTER GLOW
+========================================================= */
+
+/* top glow */
+.dashboard-filters::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 195, 255, 0.9),
+    rgba(0, 255, 255, 0.5),
+    rgba(0, 195, 255, 0.9),
+    transparent
+  );
+
+  box-shadow: 0 0 12px rgba(0,195,255,0.6);
+}
+
+/* bottom glow */
+.dashboard-filters::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 195, 255, 0.35),
+    rgba(0, 255, 255, 0.25),
+    rgba(0, 195, 255, 0.35),
+    transparent
+  );
+
+  box-shadow: 0 0 6px rgba(0,195,255,0.25);
+}

@@ -1,0 +1,22 @@
+<div class="dashboard-main custom-scrollbar">
+
+    <div class="grid-stack">
+
+        {% for widget in widgets %}
+        <div class="grid-stack-item"
+             gs-x="{{ widget.column|add:'-1' }}"
+             gs-y="{{ widget.row|add:'-1' }}"
+             gs-w="{{ widget.width_units }}"
+             gs-h="{{ widget.height_units }}"
+             data-widget-id="{{ widget.id }}">
+
+            <div class="grid-stack-item-content">
+                {% include widget.template with widget=widget %}
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+    
+</div>

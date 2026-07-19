@@ -1,0 +1,141 @@
+/* dashboard/css/sidebar.css */
+
+:root {
+    --sidebar-width: 300px;
+}
+
+/* =========================================================
+   RIGHT SIDEBAR WRAPPER
+========================================================= */
+
+.dashboard-sidebar-wrapper {
+  flex: 0 0 var(--sidebar-width, 320px);
+  width: var(--sidebar-width, 320px);
+
+  display: flex;
+  flex-direction: row;
+
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* =========================================================
+   SIDEBAR CORE PANEL
+========================================================= */
+
+.dashboard-sidebar {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  /* min-height: 0; */
+  min-width: 0;
+
+  background: #0c1223;
+  color: #e0e3ff;
+
+  border-left: 1px solid rgba(0, 195, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 195, 255, 0.3);
+
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.4);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   SCROLLABLE CONTENT AREA (FIXED)
+========================================================= */
+
+.dashboard-sidebar-content {
+  flex: 1;
+
+  /* CRITICAL: allows shrinking inside flex */
+  min-height: 0;
+  min-width: 0;
+
+  /* CRITICAL: actual scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* IMPORTANT FIX:
+     REMOVE flex layout from scroll container */
+  display: block;
+
+  padding: 1.2rem;
+
+  scrollbar-gutter: stable;
+}
+
+
+/* header */
+.dashboard-sidebar-content h3 {
+  margin: 0 0 1rem 0;
+  color: #00c3ff;
+}
+
+/* =========================================================
+   RESIZER
+========================================================= */
+
+.sidebar-resizer {
+  width: 4px;
+  height: 100%;
+
+  flex-shrink: 0;
+  cursor: col-resize;
+
+  position: relative;
+  z-index: 2000;
+
+  background: transparent;
+
+  border-left: 1px solid rgba(0, 195, 255, 0.15);
+}
+
+/* grip */
+.sidebar-resizer::after {
+  content: "⋮";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 10px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  color: #00c3ff;
+
+  background: #0c1223;
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  border-radius: 4px;
+
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.sidebar-resizer:hover::after,
+.sidebar-resizer.is-dragging::after {
+  height: 80px;
+  background: rgba(0, 195, 255, 0.25);
+  border-color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.6);
+}
+
+/* =========================================================
+   SAFETY FLEX FIXES
+========================================================= */
+
+.dashboard-sidebar-wrapper,
+.dashboard-sidebar,
+.dashboard-sidebar-content {
+  min-height: 0;
+}

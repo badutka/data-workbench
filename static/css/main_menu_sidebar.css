@@ -1,0 +1,70 @@
+/* css/main_menu_sidebar.css */
+
+/* =========================================================
+   SIDEBAR HEADER (NON-SCROLL AREA)
+========================================================= */
+
+.main-menu-sidebar-header {
+    flex-shrink: 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 195, 255, 0.15);
+    color: #e0e3ff;
+    background: #0c1223;
+}
+
+/* =========================================================
+   SECTION STRUCTURE
+========================================================= */
+
+.menu-section {
+    margin-bottom: 1.5rem;
+}
+
+.menu-section-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: rgba(0, 195, 255, 0.6);
+
+    margin: 0.75rem 0 0.5rem 0.75rem;
+}
+
+/* =========================================================
+   MENU ITEMS
+========================================================= */
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 4px 12px;
+    margin: 2px 0px;
+
+    color: #e0e3ff;
+    text-decoration: none;
+    font-size: 13px;
+
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+/* hover */
+.menu-item:hover {
+    background: rgba(0, 195, 255, 0.12);
+    color: #00c3ff;
+}
+
+/* active */
+.menu-item.active {
+    background: rgba(0, 195, 255, 0.18);
+    color: #00c3ff;
+}
+
+/* icon alignment */
+.menu-item i {
+    width: 16px;
+    text-align: center;
+    opacity: 0.9;
+}

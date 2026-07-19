@@ -3,6 +3,7 @@
 .navbar-custom-main {
     background-color: #11141c !important; 
     border-bottom: 1px solid #262a33;
+    /* box-shadow: 0 1px 0 rgba(0,195,255,0.08); */
 
     padding-top: 0;
     padding-bottom: 0;

@@ -19,7 +19,7 @@ def dashboard_view(request, slug):
     # stop "detecting filters" and instead make filters first-class outputs of widgets
     widgets = DashboardService(dashboard).execute()
 
-    return render(request, "dashboard/dashboard.html", {
+    return render(request, "dashboard/dashboard_base.html", {
         "widgets": widgets,
         "dashboard": dashboard,
         "enable_account_details_visit": dashboard.slug == "portfolio-overview",
