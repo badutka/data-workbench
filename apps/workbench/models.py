@@ -10,56 +10,15 @@ class Notebook(models.Model):
 
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-
-    # path to .py marimo file
     file_path = models.CharField(max_length=500)
+    
+    cells = models.JSONField(default=list, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
-
-
-class NotebookCell(models.Model):
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid6.uuid7,
-        editable=False
-    )
-
-    class Type(models.TextChoices):
-        CODE = "code"
-        MARKDOWN = "markdown"
-
-    notebook = models.ForeignKey(
-        Notebook,
-        on_delete=models.CASCADE,
-        related_name="cells"
-    )
-
-    position = models.PositiveIntegerField()
-
-    cell_type = models.CharField(
-        max_length=20,
-        choices=Type.choices,
-        default=Type.CODE
-    )
-
-    source = models.TextField(blank=True)
-
-    output = models.JSONField(default=dict, blank=True)
-
-    execution_count = models.IntegerField(
-        null=True,
-        blank=True
-    )
-
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ["position"]
 
 
 class Run(models.Model):

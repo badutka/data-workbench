@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.workbench.models import Notebook, NotebookCell, Run, Artifact, KernelSession
+from apps.workbench.models import Notebook, Run, Artifact, KernelSession
 
 
 @admin.register(Notebook)
@@ -8,13 +8,6 @@ class NotebookAdmin(admin.ModelAdmin):
     list_display = [
         field.name for field in Notebook._meta.get_fields()
          if field.name not in ['run', 'cells']
-    ]
-
-@admin.register(NotebookCell)
-class NotebookCellAdmin(admin.ModelAdmin):
-    list_display = [
-        field.name for field in NotebookCell._meta.get_fields()
-        #  if field.name not in ['run', 'cells']
     ]
 
 @admin.register(Run)

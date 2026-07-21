@@ -178,3 +178,33 @@ button {
 button:hover {
     background: #444;
 }
+
+/* dirty indicator  */
+
+.notebook-status {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 15px;
+    font-size: 13px;
+    color: #bdbdbd;
+}
+
+#save-status {
+    transition: color .2s ease;
+}
+
+#save-status.saved {
+    color: #8bc34a;
+}
+
+#save-status.unsaved {
+    color: #ffb300;
+}
+
+#save-status.saving {
+    color: #64b5f6;
+}
+
+#save-status.error {
+    color: #ef5350;
+}
