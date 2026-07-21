@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_new.html" %}
 {% load static %}
 
 {% block extra_css %}
@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div id="notebook">
+<div id="notebook" data-notebook-id="{{ notebook.id }}">
     <!-- GLOBAL INSERT BAR (same component as cell bars) -->
     <div class="insert-bar" id="global-insert-bar">
         <div class="insert-buttons">

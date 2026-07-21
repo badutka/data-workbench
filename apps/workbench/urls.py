@@ -6,4 +6,7 @@ urlpatterns = [
     path("add-cell/", views.add_cell, name="add_cell"),
     path("delete-cell/", views.delete_cell, name="delete_cell"),
     path("run-cell/", views.run_cell_view, name="run_cell"),
+    path("update-cell/", views.update_cell, name="update_cell"),
+    path("load-notebook/", views.load_notebook, name="load_notebook"),
+    path("save-notebook/", views.save_notebook, name="save_notebook"),
 ]

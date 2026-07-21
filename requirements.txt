@@ -5,3 +5,5 @@ pydantic
 
 coloredlogs
 tabulate
+
+uuid6
