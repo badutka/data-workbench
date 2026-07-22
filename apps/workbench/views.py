@@ -17,6 +17,7 @@ def home(request):
     notebook = Notebook.objects.first()
 
     return render(request, "workbench/index.html", {"notebook": notebook})
+    return render(request, "workbench/notebook.html", {"notebook": notebook})
 
 
 # ==========================
@@ -116,6 +117,7 @@ def run_cell_view(request):
     notebook_id = data.get("notebook_id")
     cell_id = data.get("cell_id")
     
+
     notebook = Notebook.objects.get(pk=notebook_id)
 
     # get source from persisted notebook
