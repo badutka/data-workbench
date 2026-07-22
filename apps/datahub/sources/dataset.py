@@ -31,7 +31,7 @@ class DatasetDataSource(BaseDataSource):
 
         try:
             df = pd.read_sql(
-                f"SELECT * FROM {table_name}",
+                f'SELECT * FROM "{table_name}"',
                 conn
             )
         finally:
