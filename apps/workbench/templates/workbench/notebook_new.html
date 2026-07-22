@@ -1,0 +1,263 @@
+{% extends "base_new.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'workbench/css/notebook_new.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'workbench/css/cells.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'workbench/css/workbench_layout.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+
+<div class="workbench-shell">
+
+    <div class="workbench-body">
+
+        <aside class="workbench-left-rail">
+
+            <button class="app-icon-button side-rail-button"
+                    data-side="left"
+                    data-panel="Workspace"
+                    title="Workspace">
+                <i class="fas fa-layer-group"></i>
+            </button>
+
+            <button class="app-icon-button side-rail-button"
+                    data-side="left"
+                    data-panel="Catalog"
+                    title="Catalog">
+                <i class="fas fa-folder-tree"></i>
+            </button>
+
+        </aside>
+
+
+        <aside class="workbench-left-panel" id="leftPanel">
+
+            <div class="panel-header">
+                Workspace
+            </div>
+
+            <div class="panel-content" id="leftPanelContent"></div>
+
+        </aside>
+
+
+        <div class="workbench-center">
+
+            <div class="workbench-tabs">
+
+                <div class="tabs-left">
+
+                    <div class="notebook-tab active">
+                        <i class="fas fa-book"></i>
+                        notebook_01.ipynb
+                    </div>
+
+                    <div class="notebook-tab">
+                        <i class="fas fa-book"></i>
+                        analysis.ipynb
+                    </div>
+
+                    <button class="new-tab-btn" title="New notebook">
+                        <i class="fas fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="workbench-toolbar">
+
+                <div class="toolbar-left">
+
+                    <div class="toolbar-menu">
+
+                        <button class="app-menu-button">
+                            File
+                        </button>
+
+                        <div class="app-dropdown">
+                            <div class="app-dropdown-item">New Notebook</div>
+                            <div class="app-dropdown-item">Import</div>
+                            <div class="app-dropdown-item">Clone</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="toolbar-menu">
+
+                        <button class="app-menu-button">
+                            Edit
+                        </button>
+
+                        <div class="app-dropdown">
+                            <div class="app-dropdown-item">Undo</div>
+                            <div class="app-dropdown-item">Redo</div>
+                            <div class="app-dropdown-item">Preferences</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="toolbar-menu">
+
+                        <button class="app-menu-button">
+                            View
+                        </button>
+
+                        <div class="app-dropdown">
+                            <div class="app-dropdown-item">Layout</div>
+                            <div class="app-dropdown-item">Panels</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="toolbar-menu">
+
+                        <button class="app-menu-button">
+                            Run
+                        </button>
+
+                        <div class="app-dropdown">
+                            <div class="app-dropdown-item">Run Cell</div>
+                            <div class="app-dropdown-item">Run All</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="toolbar-menu">
+
+                        <button class="app-menu-button">
+                            Kernel
+                        </button>
+
+                        <div class="app-dropdown">
+                            <div class="app-dropdown-item">Restart</div>
+                            <div class="app-dropdown-item">Shutdown</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="toolbar-right">
+
+                    <div class="kernel-status">
+                        <span class="status-dot"></span>
+                        Kernel Ready
+                    </div>
+
+                    <button class="toolbar-action-button">
+                        <i class="fas fa-play-circle"></i>
+                        Run All
+                    </button>
+
+                    <button class="toolbar-action-button">
+                        <i class="fas fa-clock"></i>
+                        Schedule
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <main class="notebook-area">
+
+                <div class="notebook-status">
+                    <span id="save-status">
+                        Saved
+                    </span>
+                </div>
+
+                <div id="notebook" data-notebook-id="{{ notebook.id }}">
+
+                    <div class="insert-bar" id="global-insert-bar">
+
+                        <div class="insert-buttons">
+
+                            <button onclick="insertAtTop('code')">
+                                + Code
+                            </button>
+
+                            <button onclick="insertAtTop('text')">
+                                + Text
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="cells"></div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+
+        <aside class="workbench-right-panel" id="rightPanel">
+
+            <div class="panel-header">
+                Details
+            </div>
+
+            <div class="panel-content">
+                Select an item
+            </div>
+
+        </aside>
+
+
+        <aside class="workbench-right-rail">
+
+            <button class="app-icon-button side-rail-button"
+                    data-side="right"
+                    data-panel="Variables"
+                    title="Variables">
+                <i class="fas fa-database"></i>
+            </button>
+
+            <button class="app-icon-button side-rail-button"
+                    data-side="right"
+                    data-panel="Properties"
+                    title="Properties">
+                <i class="fas fa-sliders-h"></i>
+            </button>
+
+            <button class="app-icon-button side-rail-button"
+                    data-side="right"
+                    data-panel="Logs"
+                    title="Logs">
+                <i class="fas fa-terminal"></i>
+            </button>
+
+            <button class="app-icon-button side-rail-button"
+                    data-side="right"
+                    data-panel="Settings"
+                    title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+
+        </aside>
+
+    </div>
+
+</div>
+
+{% endblock content %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'workbench/js/workbench.js' %}" defer></script>
+<script src="{% static 'workbench/js/notebook.js' %}" defer></script>
+
+{% endblock extra_js %}
